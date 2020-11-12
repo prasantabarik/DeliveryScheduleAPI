@@ -1,0 +1,7 @@
+api:
+  base: "ahold-svc-mvp-deliveryscheduleapi"
+  path: ""
+
+anypoint:
+  api:
+    id: "16470702"

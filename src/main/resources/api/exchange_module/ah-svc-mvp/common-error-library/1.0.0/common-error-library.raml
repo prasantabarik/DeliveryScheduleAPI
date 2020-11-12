@@ -1,0 +1,30 @@
+#%RAML 1.0 Library
+usage: defines common structure for error response which can be reused in API Specification
+types:
+  error-type:
+    additionalProperties: false
+    xml:
+      name: Response
+    properties:
+      error-code:
+        description: Unique value that indicates a particular type of error
+        type: string
+      message: 
+        description: User friendly Error Message
+        type: string
+        required: false
+      error-details:
+        type: object
+        additionalProperties: false
+        properties:
+          correlationId:
+            description: If CorrelationID Availaible
+            type: string
+            required: false
+          component:
+            description: The system or Subsystem that caused the error
+            type: string
+          timestamp:
+            description: When the error occured
+            type: datetime
+            required: false

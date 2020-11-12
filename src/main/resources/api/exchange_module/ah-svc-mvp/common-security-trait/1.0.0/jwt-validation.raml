@@ -1,0 +1,15 @@
+#%RAML 1.0 Trait
+usage: Apply this to any method resource or API that needs to be secured by JWT Bearer Token. It should be unique accross each application accross the environment
+headers:
+  Authorization:
+    description: Berear token value
+    type: string
+responses:
+  400:
+    description: Token was not provided in the request.
+  401:
+    description: Signature could not have been validated, or is invalid 
+  403:
+    description: The client Id validation failed.
+  502:
+    description: When the JWKS is unavailable.

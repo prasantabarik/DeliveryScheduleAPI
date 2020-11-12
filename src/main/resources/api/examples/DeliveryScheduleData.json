@@ -1,0 +1,55 @@
+{
+    "id": 129879,
+    "storenumber": 1310,
+    "deliveryStreamNumber": 4,
+    "deliveryStreamName": "HOUDBAAR",
+    "schemaName": "BASISSCHEMA",
+    "deliverySchemaType": "1",
+    "startDate": "2020-10-12",
+    "endDate": "2020-10-12",
+    "notes": "Spoorboek najaar",
+    "timetable": [
+      {
+        "orderDay": "ZA",
+        "orderTime": "15:45",
+        "deliveryDay": "MA",
+        "deliveryTime": "12:45",
+        "fillDay": "MA",
+        "fillTime": "12:45",
+        "boxSize": "84",
+        "initialDeliveryFlag": "N",
+        "mainDeliveryFlag": "J",
+        "startDay": "MA",
+        "startTime": "09:45",
+        "exclusion":
+          [
+            {
+            "logisticGroupNumber": "XXX"
+            }
+          ]
+        },
+        {
+        "orderDay": "ZA",
+        "orderTime": "15:45",
+        "deliveryDay": "MA",
+        "deliveryTime": "12:45",
+        "fillDay": "MA",
+        "fillTime": "12:45",
+        "boxSize": "84",
+        "initialDeliveryFlag": "N",
+        "mainDeliveryFlag": "J",
+        "startDay": "MA",
+        "startTime": "09:45",
+        "exclusion":
+          [
+            {
+            "logisticGroupNumber": "XXX"
+            }
+          ]
+        }
+    ],
+    "createdBy": "pnl0060s",
+    "creationDateTime": "2020-11-04 13:05:27",
+    "updatedBy": "pnl0060s",
+    "updateDateTime": "2020-11-04 13:05:27"
+}

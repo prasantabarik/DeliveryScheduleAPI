@@ -1,0 +1,10 @@
+#%RAML 1.0 Trait
+usage: Apply this to any method resource or API that needs to be secured by Client-Id and Client-Secret. It should be unique accross each application accross the environment
+headers:
+  client-id:
+    type: string
+    required: true
+  client-secret:
+    type: string
+    required: true
+    

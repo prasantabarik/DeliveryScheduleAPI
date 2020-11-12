@@ -1,0 +1,156 @@
+#%RAML 1.0
+title: SCM MVP DeliverySchedule Exp API
+
+baseUri: https://anypoint.mulesoft.com/mocking/api/v1/links/216f9cba-d354-42aa-a3d4-4110f7d95e6f/ # 
+version: v1
+
+uses:
+  commonlib: /exchange_module/ah-svc-mvp/common-raml-library/1.0.0/common-raml-library.raml
+  clib: /exchange_module/ah-svc-mvp/common-raml-library//1.0.0/common-raml-library.raml
+  errorlib: /exchange_module/ah-svc-mvp/common-error-library/1.0.0/common-error-library.raml
+
+traits:
+  -clientId: !include /exchange_module/ah-svc-mvp/common-security-trait/1.0.0/client-id-enforcement.raml
+  -jwt: !include /exchange_module/ah-svc-mvp/common-security-trait/1.0.0/jwt-validation.raml
+
+types:
+  FetchDeliverySchedule: !include datatype/DeliveryScheduleData.raml
+  PostOrUpdateDeliverySchedule: !include datatype/PostOrUpdateDeliveryScheduleRequest.raml
+
+/healthCheck:
+  is: [-clientId,
+       -jwt]
+  type: clib.healthCheck
+
+/deliverySchedule:
+  is: [-clientId,
+       -jwt]
+  displayName: Delivery Schedules
+  get:
+    queryParameters:
+      storenumber:
+        description: Store Number
+        type: integer
+        required: false
+      deliveryStreamNumber:
+        description: Delivery Stream Number
+        type: integer
+        required: false
+      deliveryStreamName:
+        description: Delivery Stream Name
+        type: string
+        required: false
+      schemaName:
+        description: Schema Name
+        type: string
+        required: false
+      startDate:
+        description: Start Date of the Delivery
+        type: date-only
+        required: false
+      endDate:
+        description: End Date of the Delivery
+        type: date-only
+        required: false
+      notes:
+        description: Notes if Any
+        type: string
+        required: false
+    responses:
+      200:
+        body:
+          application/json:
+            type: FetchDeliverySchedule
+            example: !include examples/DeliveryScheduleData.json
+      400:
+        body:
+          application/json:
+            description: Bad Request
+            type: errorlib.error-type
+          application/xml:
+            description: Bad Request
+            type: errorlib.error-type
+      500:
+        body:
+          application/json:
+            description: Unexpected Error Occurred
+            type: errorlib.error-type
+          application/xml:
+            description: Unexpected Error Occurred
+            type: errorlib.error-type
+  post:
+    body:
+      application/json:
+        type: PostOrUpdateDeliverySchedule
+        example: !include /examples/DeliveryScheduleData.json
+    responses:
+      200:
+       body:
+        application/json:
+          example: !include examples/PostOrUpdateDeliveryScheduleResponse.json
+      400:
+        body:
+          application/json:
+            description: Bad Request
+            type: errorlib.error-type
+          application/xml:
+            description: Bad Request
+            type: errorlib.error-type
+      500:
+        body:
+          application/json:
+            description: Unexpected Error Occurred
+            type: errorlib.error-type
+          application/xml:
+            description: Unexpected Error Occurred
+            type: errorlib.error-type
+  put:
+    body:
+      application/json:
+        type: PostOrUpdateDeliverySchedule
+        example: !include /examples/DeliveryScheduleData.json
+    responses:
+      200:
+       body:
+        application/json:
+          example: !include examples/PostOrUpdateDeliveryScheduleResponse.json
+      400:
+        body:
+          application/json:
+            description: Bad Request
+            type: errorlib.error-type
+          application/xml:
+            description: Bad Request
+            type: errorlib.error-type
+      500:
+        body:
+          application/json:
+            description: Unexpected Error Occurred
+            type: errorlib.error-type
+          application/xml:
+            description: Unexpected Error Occurred
+            type: errorlib.error-type
+  delete:
+    body:
+      application/json:
+    responses:
+      200:
+       body:
+        application/json:
+          example: !include /examples/DeleteDeliveryScheduleResponse.json
+      400:
+        body:
+          application/json:
+            description: Bad Request
+            type: errorlib.error-type
+          application/xml:
+            description: Bad Request
+            type: errorlib.error-type
+      500:
+        body:
+          application/json:
+            description: Unexpected Error Occurred
+            type: errorlib.error-type
+          application/xml:
+            description: Unexpected Error Occurred
+            type: errorlib.error-type
