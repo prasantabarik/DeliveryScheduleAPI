@@ -154,3 +154,33 @@ types:
           application/xml:
             description: Unexpected Error Occurred
             type: errorlib.error-type
+/getDeliverySchedule:
+  is: [-clientId,
+       -jwt]
+  displayName: Get Delivery Schedules
+  post:
+    body:
+      application/json:
+        example: !include /examples/GetDeliveryScheduleRequestData.json
+    responses:
+      200:
+       body:
+        application/json:
+          type: FetchDeliverySchedule
+          example: !include examples/DeliveryScheduleData.json
+      400:
+        body:
+          application/json:
+            description: Bad Request
+            type: errorlib.error-type
+          application/xml:
+            description: Bad Request
+            type: errorlib.error-type
+      500:
+        body:
+          application/json:
+            description: Unexpected Error Occurred
+            type: errorlib.error-type
+          application/xml:
+            description: Unexpected Error Occurred
+            type: errorlib.error-type

@@ -12,10 +12,11 @@ http://www.mulesoft.org/schema/mule/api-gateway http://www.mulesoft.org/schema/m
 	<http:listener-config name="scm-mvp-deliveryschedule-exp-api-httpListenerConfig">
         <http:listener-connection host="0.0.0.0" port="8081" />
     </http:listener-config>
-    <apikit:config name="scm-mvp-deliveryschedule-exp-api-config" api="scm-mvp-deliveryschedule-exp-api.raml" outboundHeadersMapName="outboundHeaders" httpStatusVarName="httpStatus" />
-	<api-gateway:autodiscovery apiId="${anypoint.api.id}" doc:name="API Autodiscovery" doc:id="bbad09cd-9812-4a56-b013-20e0366f32b7" flowRef="scm-mvp-deliveryschedule-exp-api-main" />
-	<configuration-properties doc:name="Application Config File" doc:id="04ac43f4-969e-4abf-85f0-982e83d1fd1f" file="base-api-config.yaml" />
-	<configuration-properties doc:name="Environment Config File" doc:id="699c7932-5982-4651-901e-fc1542744797" file="config/${mule.env}-env-config.yaml" />
-	<global-property doc:name="Global Property" doc:id="eedaef70-489a-4329-a97d-89edb94d343b" name="mule.env" value="local" />
+    <apikit:config name="scm-mvp-deliveryschedule-exp-api-config" api="api\scm-mvp-deliveryschedule-exp-api.raml" outboundHeadersMapName="outboundHeaders" httpStatusVarName="httpStatus" />
+    <api-gateway:autodiscovery apiId="16471766" doc:name="API Autodiscovery" doc:id="d95d1bb8-3f71-4cb1-af17-5e700ffcd0ad" flowRef="scm-mvp-deliveryschedule-exp-api-main" ignoreBasePath="true"/>
+	<global-property doc:name="Global Property" doc:id="d07252cb-be30-43fa-a2b7-a36bd95b5371" name="mule.env" value="local" />
+	<configuration-properties doc:name="Environment Config File" doc:id="b39ddba7-935a-450f-a978-4b33d171b4c3" file="config/${mule.env}-env-config.yaml" />
+	<configuration-properties doc:name="Anypoint Tool Properties" doc:id="9c88e9e5-c411-4108-a7e2-cb8553b5cf11" file="configuration.properties" />
+	<configuration-properties doc:name="Application config File" doc:id="be2c2c61-6299-445a-8864-9ea3bf4dc6ea" file="base-api-config.yaml" />
 	
 </mule>
