@@ -10,7 +10,7 @@ http://www.mulesoft.org/schema/mule/mule-apikit http://www.mulesoft.org/schema/m
 http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/http/current/mule-http.xsd 
 http://www.mulesoft.org/schema/mule/api-gateway http://www.mulesoft.org/schema/mule/api-gateway/current/mule-api-gateway.xsd http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd">
 	<http:listener-config name="scm-mvp-deliveryschedule-exp-api-httpListenerConfig">
-        <http:listener-connection host="0.0.0.0" port="8081" />
+        <http:listener-connection host="0.0.0.0" port="8080" />
     </http:listener-config>
     <apikit:config name="scm-mvp-deliveryschedule-exp-api-config" api="api\scm-mvp-deliveryschedule-exp-api.raml" outboundHeadersMapName="outboundHeaders" httpStatusVarName="httpStatus" />
     <api-gateway:autodiscovery apiId="16471766" doc:name="API Autodiscovery" doc:id="d95d1bb8-3f71-4cb1-af17-5e700ffcd0ad" flowRef="scm-mvp-deliveryschedule-exp-api-main" ignoreBasePath="true"/>
