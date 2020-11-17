@@ -27,10 +27,28 @@ http://www.mulesoft.org/schema/mule/ee/core http://www.mulesoft.org/schema/mule/
                         <ee:set-payload><![CDATA[%dw 2.0
 output application/json
 ---
-{message: "Bad request"}]]></ee:set-payload>
+if(error.description contains("startDate"))
+{
+	"responseCode": "404",
+    "responseDescription": "Failure",
+    "response": "StartDate is not valid. yyyy-mm-dd is the correct date format"
+}
+else if(error.description contains("endDate"))
+{
+	"responseCode": "404",
+    "responseDescription": "Failure",
+    "response": "EndDate is not valid. yyyy-mm-dd is the correct date format"
+	
+}
+else
+{
+	"responseCode": "404",
+    "responseDescription": "Failure",
+    "response": "Bad Request"
+}]]></ee:set-payload>
                     </ee:message>
                     <ee:variables>
-                        <ee:set-variable variableName="httpStatus">400</ee:set-variable>
+                        <ee:set-variable variableName="httpStatus"><![CDATA[400]]></ee:set-variable>
                     </ee:variables>
                 </ee:transform>
             </on-error-propagate>
