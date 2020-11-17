@@ -28,7 +28,7 @@ spec:
                   image: "{{ .Values.image.name }}:{{ .Values.image.version }}"
                   imagePullPolicy: Always
                   ports:
-                      - containerPort: 8080
+                      - containerPort: 8081
                         protocol: TCP
                   livenessProbe:
                       failureThreshold: 5
@@ -36,7 +36,7 @@ spec:
                       periodSeconds: 20
                       successThreshold: 1
                       tcpSocket:
-                          port: 8080
+                          port: 8081
                       timeoutSeconds: 5
                   readinessProbe:
                       failureThreshold: 5
@@ -44,7 +44,7 @@ spec:
                       periodSeconds: 20
                       successThreshold: 1
                       tcpSocket:
-                          port: 8080
+                          port: 8081
                       timeoutSeconds: 5
                   resources:
                       requests:
