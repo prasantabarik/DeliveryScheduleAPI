@@ -173,7 +173,7 @@ output application/json
 			<http:query-params ><![CDATA[#[output application/java
 ---
 {
-	('storenumber': attributes.queryParams.storenumber)if((attributes.queryParams.storenumber?)and (!isEmpty(attributes.queryParams.storenumber))),
+	('storeNumber': attributes.queryParams.storeNumber)if((attributes.queryParams.storeNumber?)and (!isEmpty(attributes.queryParams.storeNumber))),
 	('deliveryStreamNumber': attributes.queryParams.deliveryStreamNumber)if((attributes.queryParams.deliveryStreamNumber?)and (!isEmpty(attributes.queryParams.deliveryStreamNumber))),
 	('deliveryStreamName': attributes.queryParams.deliveryStreamName)if((attributes.queryParams.deliveryStreamName?)and (!isEmpty(attributes.queryParams.deliveryStreamName))),
 	('schemaName': attributes.queryParams.schemaName)if((attributes.queryParams.schemaName?)and (!isEmpty(attributes.queryParams.schemaName))),
@@ -201,7 +201,7 @@ output application/json
 			<http:query-params ><![CDATA[#[output application/java
 ---
 {
-	('storenumber': payload.storenumber)if((payload.storenumber?)and (!isEmpty(payload.storenumber))),
+	('storeNumber': payload.storeNumber)if((payload.storeNumber?)and (!isEmpty(payload.storeNumber))),
 	('deliveryStreamNumber': payload.deliveryStreamNumber)if((payload.deliveryStreamNumber?)and (!isEmpty(payload.deliveryStreamNumber))),
 	('deliveryStreamName': payload.deliveryStreamName)if((payload.deliveryStreamName?)and (!isEmpty(payload.deliveryStreamName))),
 	('schemaName': payload.schemaName)if((payload.schemaName?)and (!isEmpty(payload.schemaName))),
