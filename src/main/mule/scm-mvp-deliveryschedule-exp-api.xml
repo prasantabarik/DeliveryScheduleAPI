@@ -3,8 +3,11 @@
 	xmlns:doc="http://www.mulesoft.org/schema/mule/documentation" xmlns:api-gateway="http://www.mulesoft.org/schema/mule/api-gateway" xmlns="http://www.mulesoft.org/schema/mule/core" xmlns:apikit="http://www.mulesoft.org/schema/mule/mule-apikit" xmlns:http="http://www.mulesoft.org/schema/mule/http" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/http/current/mule-http.xsd http://www.mulesoft.org/schema/mule/mule-apikit http://www.mulesoft.org/schema/mule/mule-apikit/current/mule-apikit.xsd 
 http://www.mulesoft.org/schema/mule/api-gateway http://www.mulesoft.org/schema/mule/api-gateway/current/mule-api-gateway.xsd
 http://www.mulesoft.org/schema/mule/ee/core http://www.mulesoft.org/schema/mule/ee/core/current/mule-ee.xsd">
-	<http:request-config name="HTTP_Request_configuration" doc:name="HTTP Request configuration" doc:id="5e72d4ad-6aad-45f4-904a-20284ba976cf" >
+	<http:request-config name="DeliveryScheduleCRUDEndpoint" doc:name="HTTP Request configuration" doc:id="5e72d4ad-6aad-45f4-904a-20284ba976cf" >
 		<http:request-connection host="delschcrud-edppublic-delschcrud-dev.59ae6b648ca3437aae3a.westeurope.aksapp.io" />
+	</http:request-config>
+	<http:request-config name="DeliveryScheduleAKSEndpoint" doc:name="HTTP Request configuration" doc:id="0c98b9e3-e0ec-4622-b9dd-a9da0d0d1e44" >
+		<http:request-connection host="delschreqhandler-edppublic-delschreqhandler-dev.59ae6b648ca3437aae3a.westeurope.aksapp.io" />
 	</http:request-config>
 	<flow name="scm-mvp-deliveryschedule-exp-api-main">
         <http:listener config-ref="scm-mvp-deliveryschedule-exp-api-httpListenerConfig" path="/api/*">
@@ -131,7 +134,7 @@ output application/json
         <logger level="INFO" doc:name="Log PutDeliveyScheduleFlow - Start" doc:id="eca632e4-d13f-4942-8ddf-4107dbef6d3a" message="Flow #[flow.name] start"/>
 		<logger level="INFO" doc:name="Log Request Payload" doc:id="42ea823b-18ad-46a9-8366-b72b04d98c45" message="Log PutDeliverySchedule Request Payload :: #[payload]"/>
 		<!--  <http:request method="GET" doc:name="Call Delivery Schedule Put Microservice" doc:id="85488ba6-29dd-408f-9863-bf9eb6cc34fb" responseTimeout="${http-request-timeout}"/>-->
-		<http:request method="PUT" doc:name="Call Put DeliverySchedule Put Microservice" doc:id="d2866bc6-de43-419f-82ca-a62eb1ad8e7f" responseTimeout="${http-request-timeout}" config-ref="HTTP_Request_configuration" path="/api/v1/deliveryschedule-crud-service/model"/>
+		<http:request method="PUT" doc:name="Call Put DeliverySchedule Put Microservice" doc:id="d2866bc6-de43-419f-82ca-a62eb1ad8e7f" responseTimeout="${http-request-timeout}" config-ref="DeliveryScheduleAKSEndpoint" path="/api/v1/deliverySchedule-Validation-service/model"/>
 		<logger level="INFO" doc:name="Log Response Payload" doc:id="33709db7-c75e-4d9a-bc39-452e112f4544" message="Log Post DeliverySchedule Response :: #[payload]"/>
 		<logger level="INFO" doc:name="PutDeliveryScheduleFlow -End" doc:id="87a8b2c9-61df-42dd-88bb-c291b6a39e8f" message="Flow #[flow.name] ended"/>
     </flow>
@@ -139,7 +142,14 @@ output application/json
         <logger level="INFO" doc:name="Log DeleteDeliveyScheduleFlow - Start" doc:id="76ce5ce0-9615-4716-9ba6-2d80e98fe284" message="Flow #[flow.name] start"/>
 		<logger level="INFO" doc:name="Log Request Payload" doc:id="89aa5160-2f68-48d8-b266-24dc3c7816df" message="Log DeleteDeliverySchedule Request Payload :: #[payload]"/>
 		<!--  <http:request method="GET" doc:name="Call Delivery Schedule Delete Microservice" doc:id="a39371f1-32a4-454c-a2bb-63432446f371" responseTimeout="${http-request-timeout}"/>-->
-		<http:request method="DELETE" doc:name="Call Delete DeliverySchedule Microservice" doc:id="5c3877f1-0fd5-4023-9f46-1869e7e2a4fd" config-ref="HTTP_Request_configuration" responseTimeout="${http-request-timeout}" path="/api/v1/deliveryschedule-crud-service/model"/>
+		<http:request method="DELETE" doc:name="Call Delete DeliverySchedule Microservice" doc:id="5c3877f1-0fd5-4023-9f46-1869e7e2a4fd" config-ref="DeliveryScheduleAKSEndpoint" responseTimeout="${http-request-timeout}" path="/api/v1/deliverySchedule-Validation-service/model/{id}">
+			<http:body ><![CDATA[#[{}]]]></http:body>
+			<http:uri-params ><![CDATA[#[output application/java
+---
+{
+	'id' : payload.id
+}]]]></http:uri-params>
+		</http:request>
 		<logger level="INFO" doc:name="Log Response Payload" doc:id="052554f1-9a06-408d-84c9-8a230f55ca01" message="Log Delete DeliverySchedule Response :: #[payload]"/>
 		<logger level="INFO" doc:name="DeleteDeliveryScheduleFlow -End" doc:id="6e666cfb-c0a6-44c7-8d26-be559db422f1" message="Flow #[flow.name] ended"/>
     </flow>
@@ -159,7 +169,7 @@ output application/json
     </flow>
     <flow name="get:\deliverySchedule:scm-mvp-deliveryschedule-exp-api-config">
         <logger level="INFO" doc:name="GetDeliveyScheduleFlow - Start" doc:id="96a669fe-918e-4cc1-973b-f2d79037c22c" message="Flow #[flow.name] start"/>
-		<logger level="INFO" doc:name="Log Request Attributes" doc:id="095d5460-4795-4ac6-bb22-75b26d24c867" message="Log Request Attributes :: #[attributes.queryParams]"/><http:request method="GET" doc:name="Call Delivery Schedule Get Microservice" doc:id="d3024229-6e2d-4632-ba82-21aa94bf23bb" responseTimeout="${http-request-timeout}" config-ref="HTTP_Request_configuration" path="/api/v1/deliveryschedule-crud-service/model">
+		<logger level="INFO" doc:name="Log Request Attributes" doc:id="095d5460-4795-4ac6-bb22-75b26d24c867" message="Log Request Attributes :: #[attributes.queryParams]"/><http:request method="GET" doc:name="Call Delivery Schedule Get Microservice" doc:id="d3024229-6e2d-4632-ba82-21aa94bf23bb" responseTimeout="${http-request-timeout}" config-ref="DeliveryScheduleAKSEndpoint" path="/api/v1/deliverySchedule-Validation-service/model">
 			<http:query-params ><![CDATA[#[output application/java
 ---
 {
@@ -180,14 +190,14 @@ output application/json
         <logger level="INFO" doc:name="PostDeliveyScheduleFlow - Start" doc:id="90dab15d-4f5f-49d9-a866-48c4a8af6284" message="Flow #[flow.name] start"/>
 		<logger level="INFO" doc:name="Log Request Payload" doc:id="d850a67a-04d9-48d1-8640-8c7983a56970" message="Log PostDeliverySchedule Request Payload :: #[payload]"/>
 		<!--  <http:request method="POST" doc:name="Call Delivery Schedule Post Microservice" doc:id="d862b669-501a-4807-8200-7200d1357e03" responseTimeout="${http-request-timeout}"/>-->
-		<http:request method="POST" doc:name="Call DeliverySchedule PostMicroservice" doc:id="2688757c-e5c2-437d-9d67-c211fda67868" config-ref="HTTP_Request_configuration" path="/api/v1/deliveryschedule-crud-service/model" responseTimeout="${http-request-timeout}"/>
+		<http:request method="POST" doc:name="Call DeliverySchedule PostMicroservice" doc:id="2688757c-e5c2-437d-9d67-c211fda67868" config-ref="DeliveryScheduleAKSEndpoint" path="/api/v1/deliverySchedule-Validation-service/model" responseTimeout="${http-request-timeout}"/>
 		<logger level="INFO" doc:name="Log Response Payload" doc:id="cedc8c20-2de5-4a60-8495-9a7573a5c9cb" message="Log Post DeliverySchedule Response :: #[payload]"/>
 		<logger level="INFO" doc:name="PostDeliveryScheduleFlow -End" doc:id="605165ed-d334-4e3b-aab5-f38282057177" message="Flow #[flow.name] ended"/>
     </flow>
 	<flow name="post:\getDeliverySchedule:application\json:scm-mvp-deliveryschedule-exp-api-config">
         <logger level="INFO" doc:name="GetDeliveyScheduleFlow - Start" doc:id="5c1c2d9c-43f0-43b1-89dd-5c4a0f48d5ae" message="Flow #[flow.name] start"/>
 		<logger level="INFO" doc:name="Log Request Attributes" doc:id="7184a06e-7803-499e-843a-f0a8e586787e" message="Log Request Attributes :: #[attributes.queryParams]"/>
-		<http:request method="GET" doc:name="Call Delivery Schedule Get Microservice" doc:id="451a1b61-d0d9-49f1-ab52-9c7a7257f4c2" responseTimeout="${http-request-timeout}" config-ref="HTTP_Request_configuration" path="/api/v1/deliveryschedule-crud-service/model">
+		<http:request method="GET" doc:name="Call Delivery Schedule Get Microservice" doc:id="451a1b61-d0d9-49f1-ab52-9c7a7257f4c2" responseTimeout="${http-request-timeout}" config-ref="DeliveryScheduleAKSEndpoint" path="/api/v1/deliverySchedule-Validation-service/model">
 			<http:query-params ><![CDATA[#[output application/java
 ---
 {
