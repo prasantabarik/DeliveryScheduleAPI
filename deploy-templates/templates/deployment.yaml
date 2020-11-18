@@ -49,6 +49,15 @@ spec:
                   resources:
                       requests:
                           memory: 500Mi
+                  env:
+                  - name: ANYPOINT_USERNAME
+                    value: paramita-nov
+                  - name: ANYPOINT_PASSWORD
+                    value: Paramita1
+                  - name: ANYPOINT_ORGANIZATION
+                    value: 6ed85bb3-0699-4940-9f13-2cd1d6161506
+                  - name: ANYPOINT_ENVIRONMENT
+                    value: SANDBOX
 {{- if .Values.database.required }}
                   env:
                       - name: POSTGRES_DATABASE
