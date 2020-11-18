@@ -1,6 +1,5 @@
 {
 	"name": "SCM MVP DeliverySchedule Exp API",
 	"version": "1.0.3",
-	"endpoint": "http://ahold-svc-mvp-deliveryschedule-api.us-e2.cloudhub.io/api/deliverySchedule",
 	"access": []				
 }

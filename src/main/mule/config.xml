@@ -13,7 +13,7 @@ http://www.mulesoft.org/schema/mule/api-gateway http://www.mulesoft.org/schema/m
         <http:listener-connection host="0.0.0.0" port="8081" />
     </http:listener-config>
     <apikit:config name="scm-mvp-deliveryschedule-exp-api-config" api="api\scm-mvp-deliveryschedule-exp-api.raml" outboundHeadersMapName="outboundHeaders" httpStatusVarName="httpStatus" />
-    <!--  <api-gateway:autodiscovery apiId="16471766" doc:name="API Autodiscovery" doc:id="d95d1bb8-3f71-4cb1-af17-5e700ffcd0ad" flowRef="scm-mvp-deliveryschedule-exp-api-main" ignoreBasePath="true"/>-->
+    <api-gateway:autodiscovery apiId="16471766" doc:name="API Autodiscovery" doc:id="d95d1bb8-3f71-4cb1-af17-5e700ffcd0ad" flowRef="scm-mvp-deliveryschedule-exp-api-main" ignoreBasePath="true"/>
 	<global-property doc:name="Global Property" doc:id="d07252cb-be30-43fa-a2b7-a36bd95b5371" name="mule.env" value="local" />
 	<configuration-properties doc:name="Environment Config File" doc:id="b39ddba7-935a-450f-a978-4b33d171b4c3" file="config/${mule.env}-env-config.yaml" />
 	<configuration-properties doc:name="Anypoint Tool Properties" doc:id="9c88e9e5-c411-4108-a7e2-cb8553b5cf11" file="configuration.properties" />
