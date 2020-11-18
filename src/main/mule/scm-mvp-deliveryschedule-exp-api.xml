@@ -44,7 +44,7 @@ else
 {
 	"responseCode": "404",
     "responseDescription": "Failure",
-    "response": "Bad Request"
+    "response": error.description
 }]]></ee:set-payload>
                     </ee:message>
                     <ee:variables>
@@ -195,6 +195,7 @@ output application/json
 	('deliveryStreamNumber': attributes.queryParams.deliveryStreamNumber)if((attributes.queryParams.deliveryStreamNumber?)and (!isEmpty(attributes.queryParams.deliveryStreamNumber))),
 	('deliveryStreamName': attributes.queryParams.deliveryStreamName)if((attributes.queryParams.deliveryStreamName?)and (!isEmpty(attributes.queryParams.deliveryStreamName))),
 	('schemaName': attributes.queryParams.schemaName)if((attributes.queryParams.schemaName?)and (!isEmpty(attributes.queryParams.schemaName))),
+	('deliverySchemaType': attributes.queryParams.deliverySchemaType)if((attributes.queryParams.deliverySchemaType?)and (!isEmpty(attributes.queryParams.deliverySchemaType))),
 	('startDate': attributes.queryParams.startDate)if((attributes.queryParams.startDate?)and (!isEmpty(attributes.queryParams.startDate))),
 	('endDate': attributes.queryParams.endDate)if((attributes.queryParams.endDate?)and (!isEmpty(attributes.queryParams.endDate))),
 	('notes': attributes.queryParams.notes)if((attributes.queryParams.notes?)and (!isEmpty(attributes.queryParams.notes))),
@@ -223,6 +224,7 @@ output application/json
 	('deliveryStreamNumber': payload.deliveryStreamNumber)if((payload.deliveryStreamNumber?)and (!isEmpty(payload.deliveryStreamNumber))),
 	('deliveryStreamName': payload.deliveryStreamName)if((payload.deliveryStreamName?)and (!isEmpty(payload.deliveryStreamName))),
 	('schemaName': payload.schemaName)if((payload.schemaName?)and (!isEmpty(payload.schemaName))),
+	('deliverySchemaType': payload.deliverySchemaType)if((payload.deliverySchemaType?)and (!isEmpty(payload.deliverySchemaType))),
 	('startDate': payload.startDate)if((payload.startDate?)and (!isEmpty(payload.startDate))),
 	('endDate': payload.endDate)if((payload.endDate?)and (!isEmpty(payload.endDate))),
 	('notes': payload.notes)if((payload.notes?)and (!isEmpty(payload.notes))),

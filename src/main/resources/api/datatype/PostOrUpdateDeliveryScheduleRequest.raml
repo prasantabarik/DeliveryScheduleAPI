@@ -1,6 +1,9 @@
 #%RAML 1.0 DataType
 type: object
 properties:
+  id:
+    type: string
+    required: false
   storeNumber:
     type: integer
     required: false
@@ -14,7 +17,7 @@ properties:
     type: string
     required: false
   deliverySchemaType:
-    type: string
+    type: integer
     required: false
   startDate:
     type: date-only
@@ -22,7 +25,7 @@ properties:
   endDate:
     type: date-only
     required: false
-  timetable:
+  timeTable:
     type: array
     required: false
     items:
@@ -46,7 +49,7 @@ properties:
           type: string
           required: false
         boxSize:
-          type: string
+          type: integer
           required: false
         initialDeliveryFlag:
           type: string

@@ -1,54 +1,163 @@
 {
-    "id": 129879,
-    "storeNumber": 1310,
-    "deliveryStreamNumber": 4,
-    "deliveryStreamName": "HOUDBAAR",
-    "schemaName": "BASISSCHEMA",
-    "deliverySchemaType": "1",
-    "startDate": "2020-10-12",
-    "endDate": "2020-10-12",
-    "notes": "Spoorboek najaar",
-    "timetable": [
-      {
-        "orderDay": "ZA",
-        "orderTime": "15:45",
-        "deliveryDay": "MA",
-        "deliveryTime": "12:45",
-        "fillDay": "MA",
-        "fillTime": "12:45",
-        "boxSize": "84",
-        "initialDeliveryFlag": "N",
-        "mainDeliveryFlag": "J",
-        "startDay": "MA",
-        "startTime": "09:45",
-        "exclusion":
-          [
-            {
-            "logisticGroupNumber": "XXX"
-            }
-          ]
-        },
-        {
-        "orderDay": "ZA",
-        "orderTime": "15:45",
-        "deliveryDay": "MA",
-        "deliveryTime": "12:45",
-        "fillDay": "MA",
-        "fillTime": "12:45",
-        "boxSize": "84",
-        "initialDeliveryFlag": "N",
-        "mainDeliveryFlag": "J",
-        "startDay": "MA",
-        "startTime": "09:45",
-        "exclusion":
-          [
-            {
-            "logisticGroupNumber": "XXX"
-            }
-          ]
-        }
-    ],
-    "createdBy": "pnl0060s",
+            "id": "12212020-12-241",
+            "storeNumber": 1221,
+            "deliveryStreamNumber": 1,
+            "deliveryStreamName": "HOUDBAAR",
+            "schemaName": "BASISSCHEMA",
+            "deliverySchemaType": 1,
+            "startDate": "2020-12-24",
+            "endDate": "2020-12-25",
+            "notes": "Checking id creation 4",
+            "timeTable": [
+                {
+                    "orderDay": "ZA",
+                    "orderTime": "15:46",
+                    "deliveryDay": "MA",
+                    "deliveryTime": "12:45",
+                    "fillDay": "MA",
+                    "fillTime": "12:45",
+                    "boxSize": 84,
+                    "initialDeliveryFlag": "N",
+                    "mainDeliveryFlag": "J",
+                    "startDay": "MA",
+                    "startTime": "09:45",
+                    "exclusion": [
+                        {
+                            "logisticGroupNumber": 123
+                        },
+                        {
+                            "logisticGroupNumber": 456
+                        }
+                    ]
+                },
+                {
+                    "orderDay": "MA",
+                    "orderTime": "15:45",
+                    "deliveryDay": "DI",
+                    "deliveryTime": "12:45",
+                    "fillDay": "DI",
+                    "fillTime": "12:45",
+                    "boxSize": 84,
+                    "initialDeliveryFlag": "N",
+                    "mainDeliveryFlag": "J",
+                    "startDay": "DI",
+                    "startTime": "09:45",
+                    "exclusion": [
+                        {
+                            "logisticGroupNumber": 123
+                        },
+                        {
+                            "logisticGroupNumber": 456
+                        }
+                    ]
+                },
+                {
+                    "orderDay": "DI",
+                    "orderTime": "15:45",
+                    "deliveryDay": "WO",
+                    "deliveryTime": "12:45",
+                    "fillDay": "WO",
+                    "fillTime": "12:45",
+                    "boxSize": 84,
+                    "initialDeliveryFlag": "N",
+                    "mainDeliveryFlag": "J",
+                    "startDay": "WO",
+                    "startTime": "09:45",
+                    "exclusion": [
+                        {
+                            "logisticGroupNumber": 123
+                        },
+                        {
+                            "logisticGroupNumber": 456
+                        }
+                    ]
+                },
+                {
+                    "orderDay": "WO",
+                    "orderTime": "15:45",
+                    "deliveryDay": "DO",
+                    "deliveryTime": "12:45",
+                    "fillDay": "DO",
+                    "fillTime": "12:45",
+                    "boxSize": 84,
+                    "initialDeliveryFlag": "N",
+                    "mainDeliveryFlag": "J",
+                    "startDay": "DO",
+                    "startTime": "09:45",
+                    "exclusion": [
+                        {
+                            "logisticGroupNumber": 123
+                        },
+                        {
+                            "logisticGroupNumber": 456
+                        }
+                    ]
+                },
+                {
+                    "orderDay": "DO",
+                    "orderTime": "15:45",
+                    "deliveryDay": "VR",
+                    "deliveryTime": "12:45",
+                    "fillDay": "VR",
+                    "fillTime": "12:45",
+                    "boxSize": 84,
+                    "initialDeliveryFlag": "N",
+                    "mainDeliveryFlag": "J",
+                    "startDay": "VR",
+                    "startTime": "09:45",
+                    "exclusion": [
+                        {
+                            "logisticGroupNumber": 123
+                        },
+                        {
+                            "logisticGroupNumber": 456
+                        }
+                    ]
+                },
+                {
+                    "orderDay": "VR",
+                    "orderTime": "15:45",
+                    "deliveryDay": "ZA",
+                    "deliveryTime": "12:45",
+                    "fillDay": "ZA",
+                    "fillTime": "12:45",
+                    "boxSize": 84,
+                    "initialDeliveryFlag": "N",
+                    "mainDeliveryFlag": "J",
+                    "startDay": "ZA",
+                    "startTime": "09:45",
+                    "exclusion": [
+                        {
+                            "logisticGroupNumber": 123
+                        },
+                        {
+                            "logisticGroupNumber": 456
+                        }
+                    ]
+                },
+                {
+                    "orderDay": "ZA",
+                    "orderTime": "11:00",
+                    "deliveryDay": "ZO",
+                    "deliveryTime": "11:45",
+                    "fillDay": "ZO",
+                    "fillTime": "11:45",
+                    "boxSize": 84,
+                    "initialDeliveryFlag": "J",
+                    "mainDeliveryFlag": "J",
+                    "startDay": "ZO",
+                    "startTime": "08:45",
+                    "exclusion": [
+                        {
+                            "logisticGroupNumber": 123
+                        },
+                        {
+                            "logisticGroupNumber": 456
+                        }
+                    ]
+                }
+            ],
+	"createdBy": "pnl0060s",
     "creationDateTime": "2020-11-04 13:05:27",
     "updatedBy": "pnl0060s",
     "updateDateTime": "2020-11-04 13:05:27"
