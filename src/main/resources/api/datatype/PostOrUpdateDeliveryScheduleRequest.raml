@@ -2,78 +2,40 @@
 type: object
 properties:
   id:
-    type: string
+    type: string | nil
     required: false
   storeNumber:
-    type: integer
+    type: integer | nil
     required: false
   deliveryStreamNumber:
-    type: integer
+    type: integer | nil
     required: false
   deliveryStreamName:
-    type: string
+    type: string | nil
     required: false
   schemaName:
-    type: string
+    type: string | nil
     required: false
   deliverySchemaType:
-    type: integer
+    type: integer | nil
     required: false
   startDate:
-    type: date-only
+    type: date-only | nil
     required: false
   endDate:
-    type: date-only
+    type: date-only | nil
     required: false
-  timeTable:
-    type: array
-    required: false
-    items:
-      properties:
-        orderDay:
-          type: string
-          required: false
-        orderTime:
-          type: string
-          required: false 
-        deliveryDay:
-          type: string
-          required: false
-        deliveryTime:
-          type: string
-          required: false
-        fillDay:
-          type: string
-          required: false
-        fillTime:
-          type: string
-          required: false
-        boxSize:
-          type: integer
-          required: false
-        initialDeliveryFlag:
-          type: string
-          required: false
-        mainDeliveryFlag:
-          type: string
-          required: true
-        startDay:
-          type: string
-          required: false
-        startTime:
-          type: string
-          required: false
   createdBy:
-    type: string
+    type: string | nil
     required: false
   creationDateTime:
-    type: string
+    type: string | nil
     required: false
   updatedBy:
-    type: string
+    type: string | nil
     required: false
   updateDateTime:
-    type: string
+    type: string | nil
     required: false
 
 
